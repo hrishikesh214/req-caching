@@ -1,0 +1,23 @@
+{
+	"name": "req-caching",
+	"version": "1.0.5",
+	"type": "module",
+	"types": "lib",
+	"description": "Easy Caching all types of request (API, Database)",
+	"main": "lib/index.js",
+	"scripts": {
+		"build": "tsc -p ."
+	},
+	"keywords": [
+		"cache",
+		"react",
+		"nodejs",
+		"api",
+		"database"
+	],
+	"author": "Hrishikesh Vaze",
+	"license": "ISC",
+	"dependencies": {
+		"jsonfile": "^6.1.0"
+	}
+}
