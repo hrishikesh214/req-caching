@@ -55,7 +55,9 @@ export default class Cache {
 			if (indexer === undefined) {
 				return new Error("NO CACHE FOUND")
 			}
-			temp = indexer.seed()
+			if (indexer.seed.constructor.name === "AsyncFunction")
+				temp = await indexer.seed()
+			else temp = indexer.seed()
 			if (!(await this.driver.save(key, temp, indexer.options))) {
 				return new Error("CACHE_SAVE FAILED")
 			}
