@@ -30,13 +30,13 @@ export interface CACHE_DRIVER {
 
 export const after_time: any = (t: any) => {
 	if (t.seconds) {
-		return new Date(Date.now() + t.seconds * 1000)
+		return new Date(Date.now() + t.seconds * 1000).getTime()
 	}
 	if (t.minutes) {
-		return new Date(Date.now() + t.minutes * 60 * 1000)
+		return new Date(Date.now() + t.minutes * 60 * 1000).getTime()
 	}
 	if (t.hours) {
-		return new Date(Date.now() + t.hours * 60 * 60 * 1000)
+		return new Date(Date.now() + t.hours * 60 * 60 * 1000).getTime()
 	}
-	return new Date(Date.now())
+	return new Date(Date.now()).getTime()
 }
