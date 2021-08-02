@@ -29,9 +29,9 @@ export default class Cache {
 	 */
 	async add(key: string, seed: () => any, options: CACHE_OPTS) {
 		options = {
-			maxAge: options.maxAge || { seconds: 60 },
-			strict: options.strict || false,
-			encrypt: options.encrypt || false,
+			maxAge: options?.maxAge || { seconds: 60 },
+			strict: options?.strict || false,
+			encrypt: options?.encrypt || false,
 		}
 
 		this.bunch.push({
