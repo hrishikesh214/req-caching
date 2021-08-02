@@ -3,6 +3,7 @@ import {
 	CACHE_BUNCH,
 	CACHE_OPTS,
 	CACHE_VALUE,
+	CACHE_DRIVER,
 	CACHE_ELEMENT,
 } from "./defined"
 
@@ -14,9 +15,9 @@ import driver from "./driver"
 
 export default class Cache {
 	bunch: CACHE_BUNCH // bunch of calls
-	driver: any // driver type
+	driver: CACHE_DRIVER // driver type
 
-	constructor(stype: CACHE_TYPE = "memory") {
+	constructor(stype: CACHE_TYPE = "localstorage") {
 		this.bunch = [] // lets bunch be an empty array
 		this.driver = driver[stype] // lets driver be a string
 	}

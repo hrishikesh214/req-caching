@@ -42,6 +42,7 @@ const driver = {
 				if (value.expires <= Date.now()) return null
 				return value.value
 			} catch (error) {}
+			return null
 		},
 	},
 }
