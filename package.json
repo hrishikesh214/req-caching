@@ -1,6 +1,6 @@
 {
 	"name": "req-caching",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"type": "module",
 	"types": "lib",
 	"description": "Easy Caching all types of request (API, Database)",
