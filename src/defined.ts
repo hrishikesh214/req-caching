@@ -1,8 +1,13 @@
 export type CACHE_TYPE = "memory" | "cookie" | "localstorage"
 
 export interface CACHE_OPTS {
-	maxAge?: number
+	maxAge?: {
+		seconds?: number
+		minutes?: number
+		hours?: number
+	}
 	strict?: boolean
+	encrypt?: boolean
 }
 
 export interface CACHE_VALUE {
@@ -17,6 +22,11 @@ export interface CACHE_ELEMENT {
 	options?: CACHE_OPTS
 }
 export interface CACHE_BUNCH extends Array<CACHE_ELEMENT> {}
+
+export interface CACHE_DRIVER {
+	save: () => Promise<any>
+	get: () => Promise<any>
+}
 
 export const after_time: any = (t: any) => {
 	if (t.seconds) {

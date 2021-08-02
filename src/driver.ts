@@ -1,4 +1,4 @@
-import { CACHE_VALUE, after_time } from "./defined"
+import { CACHE_VALUE, CACHE_DRIVER, after_time, CACHE_OPTS } from "./defined"
 
 const driver = {
 	memory: {
@@ -18,13 +18,12 @@ const driver = {
 		},
 	},
 	localstorage: {
-		save: async (key: string, v: any, time: any) => {
-			if (time === undefined) time = { seconds: 60 }
+		save: async (key: string, v: any, opts: CACHE_OPTS) => {
 			try {
 				key = `_CACHE_${key}`
 				let value: CACHE_VALUE = {
 					value: v,
-					expires: after_time(time),
+					expires: after_time(opts.maxAge),
 				}
 				localStorage.setItem(key, JSON.stringify(value))
 				return true
