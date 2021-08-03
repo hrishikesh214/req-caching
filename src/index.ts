@@ -7,7 +7,9 @@ import {
 	CACHE_ELEMENT,
 } from "./defined"
 
-import driver from "./driver"
+import driver from "./driver.js"
+import jsonfile from "jsonfile"
+import path from "path"
 
 /**
  * Class Cache is heart of the library.
@@ -41,6 +43,13 @@ export default class Cache {
 			seed,
 			options,
 		})
+	}
+
+	ver() {
+		const fv = jsonfile.readFileSync(
+			new URL("../package.json", import.meta.url).toString().substring(8)
+		)
+		return fv.version
 	}
 
 	/**

@@ -1,4 +1,4 @@
-import { CACHE_DRIVER } from "./defined";
+import { CACHE_DRIVER } from "./defined.js";
 interface CACHE_DRIVER_BUNCH {
     memory: CACHE_DRIVER;
     cookie: CACHE_DRIVER;

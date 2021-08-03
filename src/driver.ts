@@ -1,4 +1,4 @@
-import { CACHE_VALUE, CACHE_DRIVER, after_time, CACHE_OPTS } from "./defined"
+import { CACHE_VALUE, CACHE_DRIVER, after_time, CACHE_OPTS } from "./defined.js"
 
 interface CACHE_DRIVER_BUNCH {
 	memory: CACHE_DRIVER
