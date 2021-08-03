@@ -21,8 +21,8 @@ export interface CACHE_ELEMENT {
 export interface CACHE_BUNCH extends Array<CACHE_ELEMENT> {
 }
 export interface CACHE_DRIVER {
-    save: () => Promise<any>;
-    get: () => Promise<any>;
+    save: (key: string, v: any, opts: CACHE_OPTS | undefined) => Promise<any>;
+    get: (key: string) => Promise<any>;
 }
 export declare const after_time: any;
 //# sourceMappingURL=defined.d.ts.map

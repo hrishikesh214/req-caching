@@ -1,8 +1,14 @@
 import { CACHE_VALUE, CACHE_DRIVER, after_time, CACHE_OPTS } from "./defined"
 
-const driver = {
+interface CACHE_DRIVER_BUNCH {
+	memory: CACHE_DRIVER
+	cookie: CACHE_DRIVER
+	localstorage: CACHE_DRIVER
+}
+
+const driver: CACHE_DRIVER_BUNCH = {
 	memory: {
-		save: async (key: string, value: any) => {
+		save: async (key: string, value: any, opts: CACHE_OPTS | undefined) => {
 			return true
 		},
 		get: async (key: string) => {
@@ -10,7 +16,7 @@ const driver = {
 		},
 	},
 	cookie: {
-		save: async (key: string, value: any) => {
+		save: async (key: string, value: any, opts: CACHE_OPTS | undefined) => {
 			return true
 		},
 		get: async (key: string) => {
@@ -18,12 +24,12 @@ const driver = {
 		},
 	},
 	localstorage: {
-		save: async (key: string, v: any, opts: CACHE_OPTS) => {
+		save: async (key: string, v: any, opts: CACHE_OPTS | undefined) => {
 			try {
 				key = `_CACHE_${key}`
 				let value: CACHE_VALUE = {
 					value: v,
-					expires: after_time(opts.maxAge),
+					expires: after_time(opts?.maxAge),
 				}
 				localStorage.setItem(key, JSON.stringify(value))
 				return true

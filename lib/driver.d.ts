@@ -1,17 +1,9 @@
-import { CACHE_OPTS } from "./defined";
-declare const driver: {
-    memory: {
-        save: (key: string, value: any) => Promise<boolean>;
-        get: (key: string) => Promise<string>;
-    };
-    cookie: {
-        save: (key: string, value: any) => Promise<boolean>;
-        get: (key: string) => Promise<string>;
-    };
-    localstorage: {
-        save: (key: string, v: any, opts: CACHE_OPTS) => Promise<boolean>;
-        get: (key: string) => Promise<any>;
-    };
-};
+import { CACHE_DRIVER } from "./defined";
+interface CACHE_DRIVER_BUNCH {
+    memory: CACHE_DRIVER;
+    cookie: CACHE_DRIVER;
+    localstorage: CACHE_DRIVER;
+}
+declare const driver: CACHE_DRIVER_BUNCH;
 export default driver;
 //# sourceMappingURL=driver.d.ts.map
