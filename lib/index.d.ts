@@ -13,7 +13,6 @@ export default class Cache {
      * @returns {void}
      */
     add(key: string, seed: () => any, options: CACHE_OPTS): Promise<void>;
-    ver(): any;
     /**
      * @param {string} key
      * @return {any} value

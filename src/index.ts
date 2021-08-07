@@ -45,13 +45,6 @@ export default class Cache {
 		})
 	}
 
-	ver() {
-		const fv = jsonfile.readFileSync(
-			new URL("../package.json", import.meta.url).toString().substring(8)
-		)
-		return fv.version
-	}
-
 	/**
 	 * @param {string} key
 	 * @return {any} value
