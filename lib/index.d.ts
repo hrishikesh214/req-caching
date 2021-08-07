@@ -19,5 +19,9 @@ export default class Cache {
      * @return {any} value
      */
     get(key: string): Promise<any>;
+    /**
+     * @return {bool} value
+     */
+    cleanAll(): Promise<boolean>;
 }
 //# sourceMappingURL=index.d.ts.map
