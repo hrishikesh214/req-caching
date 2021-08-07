@@ -18,6 +18,8 @@
 	"author": "Hrishikesh Vaze",
 	"license": "ISC",
 	"dependencies": {
+		"@types/js-cookie": "^2.2.7",
+		"js-cookie": "^3.0.0",
 		"jsonfile": "^6.1.0",
 		"path": "^0.12.7"
 	},

@@ -27,6 +27,7 @@ export interface CACHE_BUNCH extends Array<CACHE_ELEMENT> {}
 export interface CACHE_DRIVER {
 	save: (key: string, v: any, opts: CACHE_OPTS | undefined) => Promise<any>
 	get: (key: string) => Promise<any>
+	clean: (key: string) => Promise<any>
 }
 
 export const after_time: any = (t: any) => {

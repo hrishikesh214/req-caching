@@ -74,4 +74,18 @@ export default class Cache {
 		}
 		return temp
 	}
+
+	/**
+	 * @return {bool} value
+	 */
+	async cleanAll() {
+		try {
+			this.bunch.forEach((c) => {
+				this.driver.clean(c.key)
+			})
+
+			return true
+		} catch (error) {}
+		return false
+	}
 }
