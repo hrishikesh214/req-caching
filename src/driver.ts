@@ -86,7 +86,7 @@ const driver: CACHE_DRIVER_BUNCH = {
 				let value: CACHE_VALUE = JSON.parse(
 					localStorage.getItem(key) ?? `{"value":null, "expires":0}`
 				)
-				if (value.value === null) {
+				if (value.value === undefined && value.value === null) {
 					return null
 				}
 				if (value.expires <= Date.now()) return null
