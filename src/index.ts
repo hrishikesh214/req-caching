@@ -51,7 +51,7 @@ export default class Cache {
 	 */
 	async get(key: string) {
 		let temp = await this.driver.get(key)
-		if (temp === null) {
+		if (temp === undefined || temp === null) {
 			let indexer: CACHE_ELEMENT | undefined = this.bunch.find(
 				(item) => item.key === key
 			)
