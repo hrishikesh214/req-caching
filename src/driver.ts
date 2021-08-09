@@ -24,7 +24,7 @@ const driver: CACHE_DRIVER_BUNCH = {
 			try {
 				key = `_CACHE_${key}`
 				let value: CACHE_VALUE = {
-					value: v,
+					value: v ?? null,
 					expires: after_time(opts?.maxAge),
 				}
 				let xtime = 1
@@ -72,7 +72,7 @@ const driver: CACHE_DRIVER_BUNCH = {
 			try {
 				key = `_CACHE_${key}`
 				let value: CACHE_VALUE = {
-					value: v,
+					value: v ?? null,
 					expires: after_time(opts?.maxAge),
 				}
 				localStorage.setItem(key, JSON.stringify(value))
@@ -86,7 +86,7 @@ const driver: CACHE_DRIVER_BUNCH = {
 				let value: CACHE_VALUE = JSON.parse(
 					localStorage.getItem(key) ?? `{"value":null, "expires":0}`
 				)
-				if (value.value === undefined && value.value === null) {
+				if (value.value === null) {
 					return null
 				}
 				if (value.expires <= Date.now()) return null
